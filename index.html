@@ -35,8 +35,7 @@
     }
     
     function playRound() {   
-      let winner; 
-        
+      let winner;         
       let playerSelection = prompt("Choose your weapon");
       let computerSelection = computerPlay();     
 
@@ -65,8 +64,7 @@
       winnerCount(winner)
     }
     
-    function winnerCount(winner){       
-        
+    function winnerCount(winner){        
       if (winner == 'player') {
         playerWinCount++;
         console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
@@ -87,11 +85,6 @@
       return selection;
     } 
 
-    /*function playerPlay() {
-      let selection = options[Math.floor(Math.random() * options.length)]
-      return selection;
-    }         
-    */
   </script>
 
 </html>
