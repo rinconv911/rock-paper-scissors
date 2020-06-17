@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test</title> 
+  </head>
+  <style> 
+  </style>
+
+  <body>
+
+  </body>
+  <script>
+
+    let options = ['rock', 'paper', 'scissors'];     
+    let playerWinCount = 0;
+    let computerWinCount = 0;   
+    let tiedMatches = 0;  
+
+    game();
+
+    function game(){
+      for (let roundCount = 1; roundCount <= 5; roundCount++) {
+        console.log("########################## Round " + roundCount + " ##########################");
+        playRound();      
+      }
+
+      if (playerWinCount > computerWinCount){
+        console.log("########################## The player wins! ##########################");
+      } else if (computerWinCount > playerWinCount){
+        console.log("########################## The computer wins! ##########################");
+      } else {
+        console.log("########################## No winner! ##########################")
+      }
+    }
+    
+    function playRound() {   
+      let winner; 
+        
+      let playerSelection = prompt("Choose your weapon");
+      let computerSelection = computerPlay();     
+
+      console.log("Player choice: " + playerSelection);
+      console.log("Computer choice: " + computerSelection);
+
+      if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper') || 
+        (playerSelection == 'paper' && computerSelection == 'rock')) { 
+        winner = 'player';
+        console.log("Winner: " + winner);     
+
+      } else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
+        (playerSelection == 'scissors' && computerSelection == 'rock') || 
+        (playerSelection == 'paper' && computerSelection == 'scissors')) {
+        winner  = 'computer';
+        console.log("Winner: " + winner);
+
+      } else if ((playerSelection == 'rock' && computerSelection == 'rock') ||
+        (playerSelection == 'scissors' && computerSelection == 'scissors') || 
+        (playerSelection == 'paper' && computerSelection == 'paper')) {  
+        winner = 'none';
+        console.log("Winner: " + winner);
+      }
+      
+      winnerCount(winner)
+    }
+    
+    function winnerCount(winner){       
+        
+      if (winner == 'player') {
+        playerWinCount++;
+        console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
+        return playerWinCount;
+      } else if (winner == 'computer') {
+        computerWinCount++;
+        console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
+        return computerWinCount;
+      } else if (winner !== 'player' && winner !== 'computer') {
+        tiedMatches++;
+        console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
+        return tiedMatches;
+      }
+    }
+    
+    function computerPlay() {
+      let selection = options[Math.floor(Math.random() * options.length)]
+      return selection;
+    } 
+
+    /*function playerPlay() {
+      let selection = options[Math.floor(Math.random() * options.length)]
+      return selection;
+    }         
+    */
+  </script>
+
+</html>
