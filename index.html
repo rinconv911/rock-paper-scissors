@@ -54,13 +54,11 @@
         winner  = 'computer';
         console.log("Winner: " + winner);
 
-      } else if ((playerSelection == 'rock' && computerSelection == 'rock') ||
-        (playerSelection == 'scissors' && computerSelection == 'scissors') || 
-        (playerSelection == 'paper' && computerSelection == 'paper')) {  
+      } else if (playerSelection === computerSelection) {  
         winner = 'none';
         console.log("Winner: " + winner);
       }
-      
+
       winnerCount(winner)
     }
     
