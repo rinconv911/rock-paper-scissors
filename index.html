@@ -17,9 +17,9 @@
     let computerWinCount = 0;   
     let tiedMatches = 0;  
 
-    game();
+    playGame();
 
-    function game(){
+    function playGame(){
       for (let roundCount = 1; roundCount <= 5; roundCount++) {
         console.log("########################## Round " + roundCount + " ##########################");
         playRound();      
@@ -59,10 +59,10 @@
         console.log("Winner: " + winner);
       }
 
-      winnerCount(winner)
+      countWins(winner)
     }
     
-    function winnerCount(winner){        
+    function countWins(winner){        
       if (winner == 'player') {
         playerWinCount++;
         console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
