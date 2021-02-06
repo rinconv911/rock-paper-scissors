@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Test</title> 
+    <title>Rock, Papers, Scissors</title> 
     <link rel="stylesheet" href="index.css">  
   </head>
   <style> 
@@ -10,23 +10,20 @@
 
   <body>
 
-    <button class="btn" id="rock">Rock</button>
-    <button class="btn" id="paper">Paper</button>
-    <button class="btn" id="scissors">Scissors</button>
+    <button id="match">Play Match</button>
+    <button class="hide" id="try-again"></button>
 
-   <button id="match">Play match</button>
+    <button class="btn hide" id="rock">Rock</button>
+    <button class="btn hide" id="paper">Paper</button>
+    <button class="btn hide" id="scissors">Scissors</button>
 
     <div class="results" id="results">
       <p class="selection" id="player-selection"></p>
       <p class="selection" id="computer-selection"></p>
-      <p class="winner" id="winner"></p>
       <p class="round-result" id="round-result"></p>
       <p class="tally" id="tally"></p>
-      <p class="count-banner" id="count-banner"></p>
-      <p class="win-banner" id="win-banner"></p>
     </div>
 
-    
   </body>
   <script src="index.js"></script>
 </html>

@@ -1,23 +1,29 @@
 let options = ['rock', 'paper', 'scissors'];     
 let playerWinCount = 0;
 let computerWinCount = 0;   
-let tiedMatches = 0;  
-
-// Weapon buttons, hidden at first
-// When clicked, they fire the playRound function
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach(button => button.addEventListener('click', playRound));
 
 // Play Match button, which makes the weapon buttons appear when clicked
 const playMatch = document.querySelector('#match');
 playMatch.addEventListener('click', showWeapons);
 
+// Try Again button, which appears after a player has gotten 5 wins
+const tryAgain = document.querySelector('#try-again');
+tryAgain.addEventListener('click', reload);
+
+// Weapon buttons, hidden at first. When clicked, they fire the playRound function
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => button.addEventListener('click', playRound));
+
 function showWeapons() {
-	buttons.forEach(button => button.style.display = 'inline');
-	playMatch.style.display = 'none';
+	buttons.forEach(button => button.classList.remove('hide'));
+	playMatch.classList.add('hide');
 }
 
-// Takes the event from the clicked button as a parameter object
+function computerPlay() {
+	let selection = options[Math.floor(Math.random() * options.length)]
+	return selection;
+} 
+
 function playRound(e) {  
 	let winner;         
 	let playerSelection = e.target.id;
@@ -25,7 +31,6 @@ function playRound(e) {
 	
 	const playerPara = document.querySelector('#player-selection');
 	const compPara = document.querySelector('#computer-selection');
-	const roundWinner = document.querySelector('#winner');
 	const roundResult = document.querySelector('#round-result');
 
 	playerPara.textContent = "Player choice: " + playerSelection;
@@ -35,26 +40,61 @@ function playRound(e) {
 		(playerSelection == 'scissors' && computerSelection == 'paper') || 
 		(playerSelection == 'paper' && computerSelection == 'rock')) { 
 		winner = 'player';
-		roundWinner.textContent = "Winner: " + winner;    
 		roundResult.textContent = "You win!";
 
 	} else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
 		(playerSelection == 'scissors' && computerSelection == 'rock') || 
 		(playerSelection == 'paper' && computerSelection == 'scissors')) {
-		winner  = 'computer';
-		roundWinner.textContent = "Winner: " + winner;    
-		roundResult.textContent = "Well, ain't that a bummer.";
+		winner  = 'computer';   
+		roundResult.textContent = "What a bummer.";
 
-	} else if (playerSelection === computerSelection) {  
+	} else if ((playerSelection === computerSelection)) {
 		winner = 'none';
-		roundWinner.textContent = "Winner: " + winner;    
-		roundResult.textContent = "Y'all too equal";
+		roundResult.textContent = "That's a tie.";
 	}
 
-	countWins(winner)
+	countWins(winner);
+
+	if (countWins() == "player") {
+		roundResult.textContent = "You win the match!";	
+		buttons.forEach(button => button.classList.add('hide'));
+		tryAgain.classList.remove('hide');
+		tryAgain.textContent = "Play again";
+	} else if (countWins() == "computer") {
+		roundResult.textContent = "You lost the match!"
+		buttons.forEach(button => button.classList.add('hide'));
+		tryAgain.classList.remove('hide');
+		tryAgain.textContent = "Try again";
+	}
 }
 
-/*function playGame(){
+function countWins(winner){   
+
+	const tally = document.querySelector('#tally')	
+	
+		if (winner == 'player') {
+			playerWinCount++;
+			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount;
+		} else if (winner == 'computer') {
+			computerWinCount++;
+			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount;
+		} else {
+			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount;
+		}
+	
+		if (playerWinCount == 5) {
+			return "player";
+			} else if (computerWinCount == 5){
+			return "computer";
+		}
+}
+
+function reload() {
+	location.reload();
+	return false;
+}
+
+/* function playGame(){
 	const winBanner = document.querySelector('#win-banner');
 	const countBanner = document.querySelector('#count-banner');
 
@@ -67,32 +107,5 @@ function playRound(e) {
 		winBanner.textContent = "########################## The player wins! ##########################";
 	} else if (computerWinCount > playerWinCount){
 		winBanner.textContent = "########################## The computer wins! ##########################";
-	} else {
-		winBanner.textContent = "########################## No winner! ##########################";
 	}
-}
-*/
-
-function countWins(winner){   
-
-	const tally = document.querySelector('#tally')	
-	
-	if (winner == 'player') {
-		playerWinCount++;
-		tally.textContent = "Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches;
-		return playerWinCount;
-	} else if (winner == 'computer') {
-		computerWinCount++;
-		tally.textContent = "Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches;
-		return computerWinCount;
-	} else if (winner !== 'player' && winner !== 'computer') {
-		tiedMatches++;
-		tally.textContent = "Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches;
-		return tiedMatches;
-	}
-}
-
-function computerPlay() {
-	let selection = options[Math.floor(Math.random() * options.length)]
-	return selection;
-} 
+} */
