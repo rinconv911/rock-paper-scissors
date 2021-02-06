@@ -9,17 +9,25 @@
 
   <body>
 
+    <button class="btn" id="rock">Rock</button>
+    <button class="btn" id="paper">Paper</button>
+    <button class="btn" id="scissors">Scissors</button>
+
+
   </body>
   <script>
+
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(function(button){
+      button.addEventListener('click', playRound)
+    })
 
     let options = ['rock', 'paper', 'scissors'];     
     let playerWinCount = 0;
     let computerWinCount = 0;   
     let tiedMatches = 0;  
 
-    playGame();
-
-    function playGame(){
+  /*  function playGame(){
       for (let roundCount = 1; roundCount <= 5; roundCount++) {
         console.log("########################## Round " + roundCount + " ##########################");
         playRound();      
@@ -33,10 +41,11 @@
         console.log("########################## No winner! ##########################")
       }
     }
-    
-    function playRound() {   
+    */
+
+    function playRound(e) {   
       let winner;         
-      let playerSelection = prompt("Choose your weapon");
+      let playerSelection = this.id;
       let computerSelection = computerPlay();     
 
       console.log("Player choice: " + playerSelection);
@@ -46,17 +55,20 @@
         (playerSelection == 'scissors' && computerSelection == 'paper') || 
         (playerSelection == 'paper' && computerSelection == 'rock')) { 
         winner = 'player';
-        console.log("Winner: " + winner);     
+        console.log("Winner: " + winner);    
+        console.log("You win!");
 
       } else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
         (playerSelection == 'scissors' && computerSelection == 'rock') || 
         (playerSelection == 'paper' && computerSelection == 'scissors')) {
         winner  = 'computer';
         console.log("Winner: " + winner);
+        console.log("Well, ain't that a bummer.");
 
       } else if (playerSelection === computerSelection) {  
         winner = 'none';
         console.log("Winner: " + winner);
+        console.log("Y'all too equal");
       }
 
       countWins(winner)
