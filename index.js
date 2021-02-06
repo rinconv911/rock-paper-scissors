@@ -6,8 +6,7 @@ let tiedMatches = 0;
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach(button => button.addEventListener('click', playRound));
 
-/*
-function playGame(){
+/* function playGame(){
 	for (let roundCount = 1; roundCount <= 5; roundCount++) {
 		console.log("########################## Round " + roundCount + " ##########################");
 		playRound();      
@@ -20,52 +19,59 @@ function playGame(){
 	} else {
 		console.log("########################## No winner! ##########################")
 	}
-}
-*/
+} */
 
 function playRound(e) {   
 	let winner;         
 	let playerSelection = this.id;
-	let computerSelection = computerPlay();     
+	let computerSelection = computerPlay(); 
+	
+	const playerPara = document.querySelector('#player-selection');
+	const compPara = document.querySelector('#computer-selection');
+	const roundWinner = document.querySelector('#winner');
+	const roundResult = document.querySelector('#round-result');
 
-	console.log("Player choice: " + playerSelection);
-	console.log("Computer choice: " + computerSelection);
+	playerPara.textContent = "Player choice: " + playerSelection;
+	compPara.textContent = "Computer choice: " + computerSelection;
 
 	if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
 		(playerSelection == 'scissors' && computerSelection == 'paper') || 
 		(playerSelection == 'paper' && computerSelection == 'rock')) { 
 		winner = 'player';
-		console.log("Winner: " + winner);    
-		console.log("You win!");
+		roundWinner.textContent = "Winner: " + winner;    
+		roundResult.textContent = "You win!";
 
 	} else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
 		(playerSelection == 'scissors' && computerSelection == 'rock') || 
 		(playerSelection == 'paper' && computerSelection == 'scissors')) {
 		winner  = 'computer';
-		console.log("Winner: " + winner);
-		console.log("Well, ain't that a bummer.");
+		roundWinner.textContent = "Winner: " + winner;    
+		roundResult.textContent = "Well, ain't that a bummer.";
 
 	} else if (playerSelection === computerSelection) {  
 		winner = 'none';
-		console.log("Winner: " + winner);
-		console.log("Y'all too equal");
+		roundWinner.textContent = "Winner: " + winner;    
+		roundResult.textContent = "Y'all too equal";
 	}
 
 	countWins(winner)
 }
 
-function countWins(winner){        
+function countWins(winner){   
+
+	const tally = document.querySelector('#tally')	
+	
 	if (winner == 'player') {
 		playerWinCount++;
-		console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
+		tally.textContent = "Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches;
 		return playerWinCount;
 	} else if (winner == 'computer') {
 		computerWinCount++;
-		console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
+		tally.textContent = "Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches;
 		return computerWinCount;
 	} else if (winner !== 'player' && winner !== 'computer') {
 		tiedMatches++;
-		console.log("Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches);
+		tally.textContent = "Rounds won by the player: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount + " | Ties: " + tiedMatches;
 		return tiedMatches;
 	}
 }
