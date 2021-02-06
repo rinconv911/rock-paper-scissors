@@ -3,27 +3,24 @@ let playerWinCount = 0;
 let computerWinCount = 0;   
 let tiedMatches = 0;  
 
+// Weapon buttons, hidden at first
+// When clicked, they fire the playRound function
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach(button => button.addEventListener('click', playRound));
 
-/* function playGame(){
-	for (let roundCount = 1; roundCount <= 5; roundCount++) {
-		console.log("########################## Round " + roundCount + " ##########################");
-		playRound();      
-	}
+// Play Match button, which makes the weapon buttons appear when clicked
+const playMatch = document.querySelector('#match');
+playMatch.addEventListener('click', showWeapons);
 
-	if (playerWinCount > computerWinCount){
-		console.log("########################## The player wins! ##########################");
-	} else if (computerWinCount > playerWinCount){
-		console.log("########################## The computer wins! ##########################");
-	} else {
-		console.log("########################## No winner! ##########################")
-	}
-} */
+function showWeapons() {
+	buttons.forEach(button => button.style.display = 'inline');
+	playMatch.style.display = 'none';
+}
 
-function playRound(e) {   
+// Takes the event from the clicked button as a parameter object
+function playRound(e) {  
 	let winner;         
-	let playerSelection = this.id;
+	let playerSelection = e.target.id;
 	let computerSelection = computerPlay(); 
 	
 	const playerPara = document.querySelector('#player-selection');
@@ -56,6 +53,25 @@ function playRound(e) {
 
 	countWins(winner)
 }
+
+/*function playGame(){
+	const winBanner = document.querySelector('#win-banner');
+	const countBanner = document.querySelector('#count-banner');
+
+	for (let roundCount = 1; roundCount <= 5; roundCount++) {
+		countBanner.textContent = "########################## Round " + roundCount + " ##########################";
+		playRound();
+	}
+
+	if (playerWinCount > computerWinCount){
+		winBanner.textContent = "########################## The player wins! ##########################";
+	} else if (computerWinCount > playerWinCount){
+		winBanner.textContent = "########################## The computer wins! ##########################";
+	} else {
+		winBanner.textContent = "########################## No winner! ##########################";
+	}
+}
+*/
 
 function countWins(winner){   
 
