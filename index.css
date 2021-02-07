@@ -1,3 +1,24 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    background-color: darkgray;
+    font-family: "lato", sans-serif;
+}
+
+#main-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+.weapons {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+}
+
 .hide {
     display: none;
 }

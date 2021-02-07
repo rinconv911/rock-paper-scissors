@@ -3,7 +3,7 @@ let playerWinCount = 0;
 let computerWinCount = 0;   
 
 // Play Match button, which makes the weapon buttons appear when clicked
-const playMatch = document.querySelector('#match');
+const playMatch = document.querySelector('#play-match');
 playMatch.addEventListener('click', showWeapons);
 
 // Try Again button, which appears after a player has gotten 5 wins
@@ -29,10 +29,9 @@ function playRound(e) {
 	let playerSelection = e.target.id;
 	let computerSelection = computerPlay(); 
 	
+	const roundResult = document.querySelector('#round-result');
 	const playerPara = document.querySelector('#player-selection');
 	const compPara = document.querySelector('#computer-selection');
-	const roundResult = document.querySelector('#round-result');
-
 	playerPara.textContent = "Player choice: " + playerSelection;
 	compPara.textContent = "Computer choice: " + computerSelection;
 
@@ -47,20 +46,19 @@ function playRound(e) {
 		(playerSelection == 'paper' && computerSelection == 'scissors')) {
 		winner  = 'computer';   
 		roundResult.textContent = "What a bummer.";
-
 	} else if ((playerSelection === computerSelection)) {
 		winner = 'none';
 		roundResult.textContent = "That's a tie.";
 	}
 
-	countWins(winner);
+	getWinner(winner);
 
-	if (countWins() == "player") {
+	if (getWinner() == "player") {
 		roundResult.textContent = "You win the match!";	
 		buttons.forEach(button => button.classList.add('hide'));
 		tryAgain.classList.remove('hide');
 		tryAgain.textContent = "Play again";
-	} else if (countWins() == "computer") {
+	} else if (getWinner() == "computer") {
 		roundResult.textContent = "You lost the match!"
 		buttons.forEach(button => button.classList.add('hide'));
 		tryAgain.classList.remove('hide');
@@ -68,7 +66,7 @@ function playRound(e) {
 	}
 }
 
-function countWins(winner){   
+function getWinner(winner){   
 
 	const tally = document.querySelector('#tally')	
 	

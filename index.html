@@ -2,28 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Rock, Papers, Scissors</title> 
+    <title>Elemental Duel</title> 
     <link rel="stylesheet" href="index.css">  
   </head>
-  <style> 
-  </style>
-
+  
   <body>
+    <main class="container" id="main-container">
 
-    <button id="match">Play Match</button>
-    <button class="hide" id="try-again"></button>
+      <h1> Elemental Duel </h1>
+      <button id="play-match">Play Match</button>
+      <button class="hide" id="try-again"></button>
 
-    <button class="btn hide" id="rock">Rock</button>
-    <button class="btn hide" id="paper">Paper</button>
-    <button class="btn hide" id="scissors">Scissors</button>
+      <div class="weapons" id="weapons">
+        <button class="btn hide" id="rock">Rock</button>
+        <button class="btn hide" id="paper">Paper</button>
+        <button class="btn hide" id="scissors">Scissors</button>
+      </div>
 
-    <div class="results" id="results">
-      <p class="selection" id="player-selection"></p>
-      <p class="selection" id="computer-selection"></p>
-      <p class="round-result" id="round-result"></p>
-      <p class="tally" id="tally"></p>
-    </div>
+      <div class="results" id="results">
+        <p class="selection" id="player-selection"></p>
+        <p class="selection" id="computer-selection"></p>
+        <p class="round-result" id="round-result"></p>
+        <p class="tally" id="tally"></p>
+      </div>
 
+    </main>
   </body>
+
   <script src="index.js"></script>
 </html>
