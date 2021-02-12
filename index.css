@@ -1,26 +1,59 @@
 body, html {
 	height: 100%;
 	width: 100%;
+	margin: 0;
 	background-color: darkgray;
 	font-family: "lato", sans-serif;
-	overflow: hidden;
 }
 
+/* Main grid */
 #main-container {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
+	display: grid;
+	height: 100%;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+		". title . "
+		"player weapons computer"
+		". rounds .";
+	justify-items: center;
+	align-items: center;
 }
 
+/* Header and play button */
 h1 {
 	font-size: 75px;
-	margin: 30px auto 0px auto;
+	margin: 0 0 20px 0;
+	grid-area: title;
 }
 
-.weapons {
-	width: 70vw;
-	height: 45vh;
+#play-match {
+	position: absolute;
 	margin: auto;
+	border-radius: 50px;
+	font-size: 70px;
+	height: 140px;
+	width: 140px;
+	font-size: 2em;
+	color: goldenrod;
+	background-color:rgba(50, 88, 102, 0.8);
+	border-color: goldenrod;
+	box-shadow: 3px 3px 10px black;
+	transition: 0.3s linear;
+}
+
+#play-match:hover {
+	scale: 1.1;
+	border-color: gold;
+	background-color: rgba(21, 43, 43, 0.8);
+	color: gold;
+}
+
+/* Weapon container */
+.weapons {
+	width: 40vw;
+	height: 30vh;
+	grid-area: weapons;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr); 
 	column-gap: 20px;
@@ -28,28 +61,44 @@ h1 {
 	align-items: center;
 }
 
+/* Weapon buttons */
 .weapons .btn {
 	border-radius: 50px;
 	font-size: 70px;
-	height: 150px;
-	width: 150px;
+	height: 2em;
+	width: 2em;
 	background-color:rgba(50, 88, 102, 0.8);
-	border-color: darkorange;
+	border-color: goldenrod;
+	transition: 0.3s linear;
+	box-shadow: 3px 3px 10px black;
 }
 
 .weapons .btn:hover {
-	animation-name: grow;
-	animation-duration: 0.3s;
-	animation-fill-mode: forwards;
+	scale: 1.1;
+	border-color: gold;
+	background-color: rgba(21, 43, 43, 0.8);
 }
 
-@keyframes grow {
-	100% {
-		scale: 1.1;
-		border-color: gold;
-		background-color: rgba(21, 43, 43, 0.8);
-	}
-	
+/* Results  */
+#player {
+	grid-area: player;
+	font-size: 3em;
+}
+
+#computer {
+	grid-area: computer;
+	font-size: 3em;
+}
+
+#round-result {
+	grid-area: rounds;
+	font-size: 2em;
+}
+
+#tally  {
+	grid-area: rounds;
+	font-size: 1.5em;
+	align-self: end;
 }
 
 .hide {

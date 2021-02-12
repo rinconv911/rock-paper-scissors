@@ -30,10 +30,10 @@ function playRound(e) {
 	let computerSelection = computerPlay(); 
 	
 	const roundResult = document.querySelector('#round-result');
-	const playerPara = document.querySelector('#player-selection');
-	const compPara = document.querySelector('#computer-selection');
-	playerPara.textContent = "Player choice: " + playerSelection;
-	compPara.textContent = "Computer choice: " + computerSelection;
+	const playerPara = document.querySelector('#player');
+	const compPara = document.querySelector('#computer');
+	playerPara.textContent = "You";
+	compPara.textContent = "Warlock";
 
 	if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
 		(playerSelection == 'scissors' && computerSelection == 'paper') || 
@@ -72,12 +72,12 @@ function getWinner(winner){
 	
 		if (winner == 'player') {
 			playerWinCount++;
-			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount;
+			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the warlock: " + computerWinCount;
 		} else if (winner == 'computer') {
 			computerWinCount++;
-			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount;
+			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the warlock: " + computerWinCount;
 		} else {
-			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the computer: " + computerWinCount;
+			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the warlock: " + computerWinCount;
 		}
 	
 		if (playerWinCount == 5) {
