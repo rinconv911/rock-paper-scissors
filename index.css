@@ -20,14 +20,14 @@ body, html {
 	align-items: center;
 }
 
-/* Header and play button */
+/* Header, play button and try again button */
 h1 {
 	font-size: 75px;
 	margin: 0 0 20px 0;
 	grid-area: title;
 }
 
-#play-match {
+#play-match, #try-again {
 	position: absolute;
 	margin: auto;
 	border-radius: 50px;
@@ -42,7 +42,7 @@ h1 {
 	transition: 0.3s linear;
 }
 
-#play-match:hover {
+#play-match:hover, #try-again:hover {
 	scale: 1.1;
 	border-color: gold;
 	background-color: rgba(21, 43, 43, 0.8);
