@@ -95,8 +95,14 @@ h1 {
 	font-size: 2em;
 }
 
-#tally  {
-	grid-area: rounds;
+#player-tally  {
+	grid-area: player;
+	font-size: 1.5em;
+	align-self: end;
+}
+
+#computer-tally  {
+	grid-area: computer;
 	font-size: 1.5em;
 	align-self: end;
 }
