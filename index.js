@@ -53,10 +53,10 @@ function playRound(e) {
 		(playerSelection == 'earth' && computerSelection == 'fire') || 
 		(playerSelection == 'water' && computerSelection == 'earth')) {
 		winner  = 'computer';   
-		roundResult.textContent = "What a bummer.";
+		roundResult.textContent = "Warlock wins!";
 	} else if ((playerSelection === computerSelection)) {
 		winner = 'none';
-		roundResult.textContent = "That's a tie.";
+		roundResult.textContent = "You two are of equal power";
 	}
 
 	getWinner(winner);
@@ -65,12 +65,12 @@ function playRound(e) {
 		roundResult.textContent = "You win the match!";	
 		buttons.forEach(button => button.classList.add('hide'));
 		tryAgain.classList.remove('hide');
-		tryAgain.textContent = "Play again";
+		tryAgain.textContent = "The warlock asks for a rematch";
 	} else if (getWinner() == "computer") {
 		roundResult.textContent = "You lost the match!"
 		buttons.forEach(button => button.classList.add('hide'));
 		tryAgain.classList.remove('hide');
-		tryAgain.textContent = "Try again";
+		tryAgain.textContent = "Will you allow the dark magic to conquer the realm?";
 	}
 }
 

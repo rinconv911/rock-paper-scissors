@@ -80,31 +80,39 @@ h1 {
 }
 
 /* Results  */
-#player {
+
+
+.player-stats {
 	grid-area: player;
-	font-size: 3em;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size: 1.5em;
 }
 
-#computer {
+.player-stats > p {
+	margin: 0;
+}
+
+.computer-stats  {
 	grid-area: computer;
-	font-size: 3em;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size: 1.5em;
+}
+
+.computer-stats > p {
+	margin: 0;
 }
 
 #round-result {
 	grid-area: rounds;
 	font-size: 2em;
-}
-
-#player-tally  {
-	grid-area: player;
-	font-size: 1.5em;
-	align-self: end;
-}
-
-#computer-tally  {
-	grid-area: computer;
-	font-size: 1.5em;
-	align-self: end;
 }
 
 .hide {
