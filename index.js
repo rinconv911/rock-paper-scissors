@@ -1,4 +1,4 @@
-let options = ['rock', 'paper', 'scissors'];     
+let options = ['fire', 'water', 'earth'];     
 let playerWinCount = 0;
 let computerWinCount = 0;   
 
@@ -35,15 +35,15 @@ function playRound(e) {
 	playerPara.textContent = "You";
 	compPara.textContent = "Warlock";
 
-	if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
-		(playerSelection == 'scissors' && computerSelection == 'paper') || 
-		(playerSelection == 'paper' && computerSelection == 'rock')) { 
+	if ((playerSelection == 'fire' && computerSelection == 'earth') ||
+		(playerSelection == 'earth' && computerSelection == 'water') || 
+		(playerSelection == 'water' && computerSelection == 'fire')) { 
 		winner = 'player';
 		roundResult.textContent = "You win!";
 
-	} else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
-		(playerSelection == 'scissors' && computerSelection == 'rock') || 
-		(playerSelection == 'paper' && computerSelection == 'scissors')) {
+	} else if ((playerSelection == 'fire' && computerSelection == 'water') ||
+		(playerSelection == 'earth' && computerSelection == 'fire') || 
+		(playerSelection == 'water' && computerSelection == 'earth')) {
 		winner  = 'computer';   
 		roundResult.textContent = "What a bummer.";
 	} else if ((playerSelection === computerSelection)) {
@@ -68,16 +68,19 @@ function playRound(e) {
 
 function getWinner(winner){   
 
-	const tally = document.querySelector('#tally')	
+	const playerTally = document.querySelector('#player-tally');
+	const computerTally = document.querySelector('#computer-tally')	
+
+	playerTally.textContent = '0';
+	computerTally.textContent = '0';
 	
 		if (winner == 'player') {
 			playerWinCount++;
-			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the warlock: " + computerWinCount;
+			playerTally.textContent = playerWinCount;
 		} else if (winner == 'computer') {
 			computerWinCount++;
-			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the warlock: " + computerWinCount;
+			computerTally.textContent = computerWinCount;
 		} else {
-			tally.textContent = "Rounds won by you: " + playerWinCount + " | Rounds won by the warlock: " + computerWinCount;
 		}
 	
 		if (playerWinCount == 5) {
