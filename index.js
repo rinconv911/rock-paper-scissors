@@ -2,6 +2,12 @@ let options = ['fire', 'water', 'earth'];
 let playerWinCount = 0;
 let computerWinCount = 0;   
 
+/* Declared globally so they appear when they Play Match button is clicked */
+const playerPara = document.querySelector('#player');
+const compPara = document.querySelector('#computer');
+const playerTally = document.querySelector('#player-tally');
+const computerTally = document.querySelector('#computer-tally')	
+
 // Play Match button, which makes the weapon buttons appear when clicked
 const playMatch = document.querySelector('#play-match');
 playMatch.addEventListener('click', showWeapons);
@@ -17,6 +23,12 @@ buttons.forEach(button => button.addEventListener('click', playRound));
 function showWeapons() {
 	buttons.forEach(button => button.classList.remove('hide'));
 	playMatch.classList.add('hide');
+
+	playerPara.textContent = "You";
+	compPara.textContent = "Warlock";	
+
+	playerTally.textContent = playerWinCount;
+	computerTally.textContent = computerWinCount;
 }
 
 function computerPlay() {
@@ -30,10 +42,6 @@ function playRound(e) {
 	let computerSelection = computerPlay(); 
 	
 	const roundResult = document.querySelector('#round-result');
-	const playerPara = document.querySelector('#player');
-	const compPara = document.querySelector('#computer');
-	playerPara.textContent = "You";
-	compPara.textContent = "Warlock";
 
 	if ((playerSelection == 'fire' && computerSelection == 'earth') ||
 		(playerSelection == 'earth' && computerSelection == 'water') || 
@@ -66,17 +74,11 @@ function playRound(e) {
 	}
 }
 
-function getWinner(winner){   
-
-	const playerTally = document.querySelector('#player-tally');
-	const computerTally = document.querySelector('#computer-tally')	
-
-	playerTally.textContent = '0';
-	computerTally.textContent = '0';
-	
+function getWinner(winner){  
+		
 		if (winner == 'player') {
 			playerWinCount++;
-			playerTally.textContent = playerWinCount;
+			playerTally.textContent = playerWinCount;			
 		} else if (winner == 'computer') {
 			computerWinCount++;
 			computerTally.textContent = computerWinCount;
@@ -85,8 +87,8 @@ function getWinner(winner){
 	
 		if (playerWinCount == 5) {
 			return "player";
-			} else if (computerWinCount == 5){
-			return "computer";
+		} else if (computerWinCount == 5){
+		return "computer";
 		}
 }
 
