@@ -2,13 +2,13 @@ let options = ['fire', 'water', 'earth'];
 let playerWinCount = 0;
 let computerWinCount = 0;   
 
-/* Declared globally so they appear when they Play Match button is clicked */
+/* Players and counters declared globally so they appear after the Play Match button is clicked */
 const playerPara = document.querySelector('#player');
 const compPara = document.querySelector('#computer');
 const playerTally = document.querySelector('#player-tally');
 const computerTally = document.querySelector('#computer-tally')	
 
-// Play Match button, which makes the weapon buttons appear when clicked
+// Play Match button, which makes the UI appear when clicked
 const playMatch = document.querySelector('#play-match');
 playMatch.addEventListener('click', showWeapons);
 

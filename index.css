@@ -1,4 +1,8 @@
-body, html {
+html {
+	font-size: 62.5%;
+}
+
+html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -8,8 +12,8 @@ body, html {
 
 /* Main grid */
 #main-container {
-	display: grid;
 	height: 100%;
+	display: grid;
 	grid-template-rows: repeat(3, 1fr);
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-areas:
@@ -22,20 +26,20 @@ body, html {
 
 /* Header, play button and try again button */
 h1 {
-	font-size: 75px;
-	margin: 0 0 20px 0;
 	grid-area: title;
+	margin: 0 0 20px 0;
+	font-size: 6rem;
 	color: #F3CB70;
+	text-align: center;
 }
 
 #play-match, #try-again {
 	position: absolute;
 	margin: auto;
-	border-radius: 50px;
-	font-size: 70px;
-	height: 140px;
-	width: 140px;
-	font-size: 2em;
+	border-radius: 5rem;
+	height: 14rem;
+	width: 22rem;
+	font-size: 2rem;
 	color: #F3CB70;
 	background-color:#25100B;
 	border-color: #F3CB70;
@@ -48,22 +52,21 @@ h1 {
 	box-shadow: 3px 3px  #F3CB70;
 }
 
+
 /* Weapon container */
 .weapons {
-	width: 40vw;
-	height: 30vh;
 	grid-area: weapons;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr); 
-	column-gap: 20px;
+	column-gap: 2rem;
 	justify-items: center;
 	align-items: center;
 }
 
 /* Weapon buttons */
 .weapons .btn {
-	border-radius: 50px;
-	font-size: 70px;
+	border-radius: 5rem;
+	font-size: 7rem;
 	height: 2em;
 	width: 2em;
 	color: #F3CB70;
@@ -83,13 +86,13 @@ h1 {
 
 .player-stats {
 	grid-area: player;
-	height: 100px;
+	height: 10rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;	
 	color: #F3CB70;
-	font-size: 1.5em;
+	font-size: 3.5rem;
 }
 
 .player-stats > p {
@@ -98,13 +101,13 @@ h1 {
 
 .computer-stats  {
 	grid-area: computer;
-	height: 100px;
+	height: 10rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
 	color: #F3CB70;
-	font-size: 1.5em;
+	font-size: 3.5rem;
 }
 
 .computer-stats > p {
@@ -113,8 +116,8 @@ h1 {
 
 #round-result {
 	grid-area: rounds;
-	font-size: 2em;
 	color: #F3CB70;
+	font-size: 3.5rem;
 }
 
 .hide {
