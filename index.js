@@ -1,6 +1,7 @@
 let options = ['fire', 'water', 'earth'];     
 let playerWinCount = 0;
-let computerWinCount = 0;   
+let computerWinCount = 0;
+const mainContainer = document.querySelector('#main-container')   
 
 /* Players and counters declared globally so they appear after the Play Match button is clicked */
 const playerPara = document.querySelector('#player');
@@ -39,27 +40,23 @@ function computerPlay() {
 function playRound(e) {
 	let winner;         
 	let playerSelection = e.target.id;
+	let computerSelection = computerPlay(); 	
 
-	let computerSelection = computerPlay(); 
-	
 	const roundResult = document.querySelector('#round-result');
+	
 
 	if ((playerSelection == 'fire' && computerSelection == 'earth') ||
 		(playerSelection == 'earth' && computerSelection == 'water') || 
 		(playerSelection == 'water' && computerSelection == 'fire')) { 
 		winner = 'player';
-		roundResult.classList.add('fade-out');
-		roundResult.textContent = "You win!";
-
+		roundResult.textContent = "You win!";		
 	} else if ((playerSelection == 'fire' && computerSelection == 'water') ||
 		(playerSelection == 'earth' && computerSelection == 'fire') || 
 		(playerSelection == 'water' && computerSelection == 'earth')) {
 		winner  = 'computer';   
-		roundResult.classList.add('fade-out');
 		roundResult.textContent = "Warlock wins!";
 	} else if ((playerSelection === computerSelection)) {
 		winner = 'none';
-		roundResult.classList.add('fade-out');
 		roundResult.textContent = "You two are of equal power";
 	}
 
@@ -76,6 +73,14 @@ function playRound(e) {
 		tryAgain.classList.remove('hide');
 		tryAgain.textContent = "Will you allow the dark magic to conquer the realm?";
 	}
+
+	/* 
+	Wouldn't the cloned node appear with an already finished class?
+	Since it's set to forward, why does the new node appear before fading out?
+	*/
+	roundResult.classList.add('fade-out');	
+	let newResult = roundResult.cloneNode(true);
+	roundResult.replaceWith(newResult);
 }
 
 function getWinner(winner){  

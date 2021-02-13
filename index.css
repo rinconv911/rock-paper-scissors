@@ -122,19 +122,24 @@ h1 {
 }
 
 .fade-out {
-	animation: fadeOut linear 2s;
+	animation: fadeOut linear 1s;
 	animation-fill-mode: forwards;
 }
 
 @keyframes fadeOut {
 	0% {
+		opacity: 0;
+		bottom: -30px;
+	}
+
+	50% {
 		opacity: 1;
 		bottom: 0px;
 	}
 
 	100% {
 		opacity: 0;
-		bottom: 50px;
+		bottom: 30px;
 	}
 }
 
