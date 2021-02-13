@@ -36,9 +36,10 @@ function computerPlay() {
 	return selection;
 } 
 
-function playRound(e) {  
+function playRound(e) {
 	let winner;         
 	let playerSelection = e.target.id;
+
 	let computerSelection = computerPlay(); 
 	
 	const roundResult = document.querySelector('#round-result');
@@ -47,15 +48,18 @@ function playRound(e) {
 		(playerSelection == 'earth' && computerSelection == 'water') || 
 		(playerSelection == 'water' && computerSelection == 'fire')) { 
 		winner = 'player';
+		roundResult.classList.add('fade-out');
 		roundResult.textContent = "You win!";
 
 	} else if ((playerSelection == 'fire' && computerSelection == 'water') ||
 		(playerSelection == 'earth' && computerSelection == 'fire') || 
 		(playerSelection == 'water' && computerSelection == 'earth')) {
 		winner  = 'computer';   
+		roundResult.classList.add('fade-out');
 		roundResult.textContent = "Warlock wins!";
 	} else if ((playerSelection === computerSelection)) {
 		winner = 'none';
+		roundResult.classList.add('fade-out');
 		roundResult.textContent = "You two are of equal power";
 	}
 

@@ -116,8 +116,26 @@ h1 {
 
 #round-result {
 	grid-area: rounds;
+	position: relative;
 	color: #F3CB70;
 	font-size: 3.5rem;
+}
+
+.fade-out {
+	animation: fadeOut linear 2s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		bottom: 0px;
+	}
+
+	100% {
+		opacity: 0;
+		bottom: 50px;
+	}
 }
 
 .hide {
