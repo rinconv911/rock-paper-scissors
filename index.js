@@ -1,7 +1,7 @@
+const mainContainer = document.querySelector('#main-container')   
 let options = ['fire', 'water', 'earth'];     
 let playerWinCount = 0;
 let computerWinCount = 0;
-const mainContainer = document.querySelector('#main-container')   
 
 /* Players and counters declared globally so they appear after the Play Match button is clicked */
 const playerPara = document.querySelector('#player');
@@ -41,9 +41,9 @@ function playRound(e) {
 	let winner;         
 	let playerSelection = e.target.id;
 	let computerSelection = computerPlay(); 	
+	console.log(glow(e, computerSelection));
 
-	const roundResult = document.querySelector('#round-result');
-	
+	const roundResult = document.querySelector('#round-result');	
 
 	if ((playerSelection == 'fire' && computerSelection == 'earth') ||
 		(playerSelection == 'earth' && computerSelection == 'water') || 
@@ -104,6 +104,17 @@ function getWinner(winner){
 function reload() {
 	location.reload();
 	return false;
+}
+
+function glow(e, computer) {	
+	let player = e.target;
+	player.style.cssText = 'box-shadow: 0px 0px 10px 10px #315561';
+
+	buttons.forEach(button => {
+		if (button.id == computer){
+			button.style.cssText = 'box-shadow: 0px 0px 10px 10px #C4462B';
+		}
+	});
 }
 
 /* function playGame(){
