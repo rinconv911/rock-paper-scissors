@@ -40,8 +40,8 @@ function computerPlay() {
 function playRound(e) {
 	let winner;         
 	let playerSelection = e.target.id;
-	let computerSelection = computerPlay(); 	
-	console.log(glow(e, computerSelection));
+	let computerSelection = computerPlay(); 
+	glow(e, computerSelection);
 
 	const roundResult = document.querySelector('#round-result');	
 
@@ -107,14 +107,24 @@ function reload() {
 }
 
 function glow(e, computer) {	
-	let player = e.target;
-	player.style.cssText = 'box-shadow: 0px 0px 10px 10px #315561';
+	let playerButton = e.target;
+	playerButton.classList.add('glow-player');
 
-	buttons.forEach(button => {
-		if (button.id == computer){
-			button.style.cssText = 'box-shadow: 0px 0px 10px 10px #C4462B';
+	let computerButton;		
+
+	for (i = 0; i < buttons.length; i++) {
+		if (buttons[i].id == computer){
+			computerButton = buttons[i];
 		}
-	});
+	}	
+
+	computerButton.classList.add('glow-computer');
+
+	if (playerButton.id === computerButton.id) {
+		playerButton.classList.add('glow-both');
+		computerButton.classList.add('glow-both');
+	}
+	
 }
 
 /* function playGame(){
