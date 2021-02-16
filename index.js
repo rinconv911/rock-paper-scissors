@@ -78,13 +78,7 @@ function playRound(e) {
 		tryAgain.textContent = "Will you allow the dark magic to conquer the realm?";
 	}
 
-	/* 
-	Wouldn't the cloned node appear with an already finished class?
-	Since it's set to forward, why does the new node appear before fading out?
-	*/
-	roundResult.classList.add('fade-out');	
-	let newResult = roundResult.cloneNode(true);
-	roundResult.replaceWith(newResult);	
+	fadeResult(roundResult);
 
 	roundCount++;
 }
@@ -143,6 +137,15 @@ function removeGlow () {
 	}
 }
 
+function fadeResult (result) {
+	/* 
+	Wouldn't the cloned node appear with an already finished class?
+	Since it's set to forward, why does the new node appear before fading out?
+	*/
+	result.classList.add('fade-out');	
+	let newResult = result.cloneNode(true);
+	result.replaceWith(newResult);	
+}
 
 /* function playGame(){
 	const winBanner = document.querySelector('#win-banner');

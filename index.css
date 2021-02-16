@@ -10,6 +10,11 @@ html, body {
 	font-family: "lato", sans-serif;
 }
 
+.hide {
+	display: none;
+	transition: 0.2s linear;
+}
+
 /* Main grid */
 #main-container {
 	height: 100%;
@@ -82,7 +87,6 @@ h1 {
 
 /* Results  */
 
-
 .player-stats {
 	grid-area: player;
 	height: 10rem;
@@ -112,6 +116,7 @@ h1 {
 .computer-stats > p {
 	margin: 0;
 }
+
 
 #round-result {
 	grid-area: rounds;
@@ -157,8 +162,4 @@ h1 {
 .weapons > .glow-both {
 	box-shadow: 0px 0px 10px 10px #913593;
 	transition: 0.3 linear;
-}
-
-.hide {
-	display: none;
 }
