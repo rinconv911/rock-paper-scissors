@@ -2,6 +2,7 @@ const mainContainer = document.querySelector('#main-container')
 let options = ['fire', 'water', 'earth'];     
 let playerWinCount = 0;
 let computerWinCount = 0;
+let roundCount = 0; 
 
 /* Players and counters declared globally so they appear after the Play Match button is clicked */
 const playerPara = document.querySelector('#player');
@@ -38,12 +39,15 @@ function computerPlay() {
 } 
 
 function playRound(e) {
-	let winner;         
 	let playerSelection = e.target.id;
 	let computerSelection = computerPlay(); 
-	glow(e, computerSelection);
+	let winner;         
 
-	const roundResult = document.querySelector('#round-result');	
+	const roundResult = document.querySelector('#round-result');
+
+	removeGlow();
+	
+	addGlow(e, computerSelection);
 
 	if ((playerSelection == 'fire' && computerSelection == 'earth') ||
 		(playerSelection == 'earth' && computerSelection == 'water') || 
@@ -80,7 +84,9 @@ function playRound(e) {
 	*/
 	roundResult.classList.add('fade-out');	
 	let newResult = roundResult.cloneNode(true);
-	roundResult.replaceWith(newResult);
+	roundResult.replaceWith(newResult);	
+
+	roundCount++;
 }
 
 function getWinner(winner){  
@@ -106,26 +112,37 @@ function reload() {
 	return false;
 }
 
-function glow(e, computer) {	
-	let playerButton = e.target;
+function addGlow(e, computer) {	
+	let playerButton = e.target;	
 	playerButton.classList.add('glow-player');
 
-	let computerButton;		
-
+	let computerButton;
 	for (i = 0; i < buttons.length; i++) {
 		if (buttons[i].id == computer){
 			computerButton = buttons[i];
 		}
-	}	
-
+	}
 	computerButton.classList.add('glow-computer');
 
 	if (playerButton.id === computerButton.id) {
+		playerButton.classList.remove('glow-player');
+		computerButton.classList.remove('glow-computer');
+
 		playerButton.classList.add('glow-both');
 		computerButton.classList.add('glow-both');
 	}
 	
 }
+
+function removeGlow () {
+
+	if (roundCount >= 1){
+		for (i = 0; i < buttons.length; i++){
+			buttons[i].classList.remove('glow-player', 'glow-computer', 'glow-both');
+		}
+	}
+}
+
 
 /* function playGame(){
 	const winBanner = document.querySelector('#win-banner');

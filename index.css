@@ -145,15 +145,18 @@ h1 {
 /* Button glow styles */
 
 .weapons > .glow-player {
-box-shadow: 0px 0px 10px 10px #315561;
+	box-shadow: 0px 0px 10px 10px #315561;
+	transition: 0.3 linear;
 }
 
 .weapons > .glow-computer {
 	box-shadow: 0px 0px 10px 10px #C4462B;
+	transition: 0.3 linear;
 }
 
 .weapons > .glow-both {
 	box-shadow: 0px 0px 10px 10px #913593;
+	transition: 0.3 linear;
 }
 
 .hide {
