@@ -2,7 +2,6 @@ const mainContainer = document.querySelector('#main-container')
 let options = ['fire', 'water', 'earth'];     
 let playerWinCount = 0;
 let computerWinCount = 0;
-let roundCount = 0; 
 
 /* Players and counters declared globally so they appear after the Play Match button is clicked */
 const playerPara = document.querySelector('#player');
@@ -13,6 +12,10 @@ const computerTally = document.querySelector('#computer-tally')
 // Play Match button, which makes the UI appear when clicked
 const playMatch = document.querySelector('#play-match');
 playMatch.addEventListener('click', showWeapons);
+
+// Counter variable for number of rounds completed
+let counter = document.querySelector('#round-counter'); 
+roundCount = 0;
 
 // Try Again button, which appears after a player has gotten 5 wins
 const tryAgain = document.querySelector('#try-again');
@@ -31,6 +34,9 @@ function showWeapons() {
 
 	playerTally.textContent = playerWinCount;
 	computerTally.textContent = computerWinCount;
+	
+	counter.classList.add('fade-in');
+	counter.textContent = "Round # " + roundCount;
 }
 
 function computerPlay() {
@@ -45,8 +51,7 @@ function playRound(e) {
 
 	const roundResult = document.querySelector('#round-result');
 
-	removeGlow();
-	
+	removeGlow();	
 	addGlow(e, computerSelection);
 
 	if ((playerSelection == 'fire' && computerSelection == 'earth') ||
@@ -81,6 +86,7 @@ function playRound(e) {
 	fadeResult(roundResult);
 
 	roundCount++;
+	counter.textContent = "Round # " + roundCount;
 }
 
 function getWinner(winner){  

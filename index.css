@@ -29,13 +29,31 @@ html, body {
 	align-items: center;
 }
 
-/* Header, play button and try again button */
-h1 {
+/* Title, round counter, play button and try again button */
+.title {
 	grid-area: title;
-	margin: 0 0 20px 0;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	grid-template-rows: 6rem 3.5rem;
+	row-gap: 1rem;
+}
+
+h1 { 
 	font-size: 6rem;
 	color: #F3CB70;
 	text-align: center;
+}
+
+#round-counter {	
+	opacity: 0;
+	color: #F3CB70;
+	font-size: 3.5rem;
+	transition: opacity 0.5s ease-in;
+}
+
+#round-counter.fade-in {
+	opacity: 1;
 }
 
 #play-match, #try-again {
@@ -57,8 +75,7 @@ h1 {
 	box-shadow: 3px 3px  #F3CB70;
 }
 
-
-/* Weapon container */
+/* Weapon container and buttons*/
 .weapons {
 	grid-area: weapons;
 	display: grid;
@@ -68,7 +85,6 @@ h1 {
 	align-items: center;
 }
 
-/* Weapon buttons */
 .weapons .btn {
 	border-radius: 5rem;
 	font-size: 7rem;
@@ -85,7 +101,7 @@ h1 {
 	scale: 1.1;
 }
 
-/* Results  */
+/* Point counters  */
 
 .player-stats {
 	grid-area: player;
@@ -117,6 +133,7 @@ h1 {
 	margin: 0;
 }
 
+/* Round result fade in/out animation */
 
 #round-result {
 	grid-area: rounds;
