@@ -3,15 +3,20 @@ let options = ['fire', 'water', 'earth'];
 let playerWinCount = 0;
 let computerWinCount = 0;
 
-/* Players and counters declared globally so they appear after the Play Match button is clicked */
+/* Players, counters and button container appear after the Play Match button is clicked */
+const playerStats = document.querySelector('#player-stats');
 const playerPara = document.querySelector('#player');
-const compPara = document.querySelector('#computer');
 const playerTally = document.querySelector('#player-tally');
+
+const computerStats = document.querySelector('#computer-stats');
+const compPara = document.querySelector('#computer');
 const computerTally = document.querySelector('#computer-tally')	
+
+const buttonContainer = document.querySelector('#weapon-container');
 
 // Play Match button, which makes the UI appear when clicked
 const playMatch = document.querySelector('#play-match');
-playMatch.addEventListener('click', showWeapons);
+playMatch.addEventListener('click', showUI);
 
 // Counter variable for number of rounds completed
 let counter = document.querySelector('#round-counter'); 
@@ -25,14 +30,21 @@ tryAgain.addEventListener('click', reload);
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach(button => button.addEventListener('click', playRound));
 
-function showWeapons() {
-	buttons.forEach(button => button.classList.remove('hide'));
+function showUI() {
+
 	playMatch.classList.add('hide');
+	buttonContainer.classList.add('fade-in');
+	buttons.forEach(button => {
+		button.classList.remove('hide')
+	});
 
+	playerStats.classList.add('fade-in');
+	computerStats.classList.add('fade-in');
+	
 	playerPara.textContent = "You";
-	compPara.textContent = "Warlock";	
-
 	playerTally.textContent = playerWinCount;
+	
+	compPara.textContent = "Warlock";	
 	computerTally.textContent = computerWinCount;
 	
 	counter.classList.add('fade-in');

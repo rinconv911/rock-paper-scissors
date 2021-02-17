@@ -52,10 +52,6 @@ h1 {
 	transition: opacity 0.5s ease-in;
 }
 
-#round-counter.fade-in {
-	opacity: 1;
-}
-
 #play-match, #try-again {
 	position: absolute;
 	margin: auto;
@@ -83,6 +79,8 @@ h1 {
 	column-gap: 2rem;
 	justify-items: center;
 	align-items: center;
+	opacity: 0;
+	transition: opacity 0.5s ease-in;
 }
 
 .weapons .btn {
@@ -94,7 +92,8 @@ h1 {
 	background-color:#25100B;
 	border-color: #F3CB70;
 	box-shadow: 3px 3px  #F3CB70;
-	transition: 0.3s linear;
+	transition: scale 0.3s linear,
+				box-shadow 0.3s linear;
 }
 
 .weapons .btn:hover {
@@ -103,7 +102,7 @@ h1 {
 
 /* Point counters  */
 
-.player-stats {
+#player-stats {
 	grid-area: player;
 	height: 10rem;
 	display: flex;
@@ -112,13 +111,15 @@ h1 {
 	align-items: center;	
 	color: #315561;
 	font-size: 3.5rem;
+	opacity: 0;
+	transition: opacity 0.5s ease-in;
 }
 
-.player-stats > p {
+#player-stats > p {
 	margin: 0;
 }
 
-.computer-stats  {
+#computer-stats  {
 	grid-area: computer;
 	height: 10rem;
 	display: flex;
@@ -127,19 +128,29 @@ h1 {
 	align-items: center;
 	color: #C4462B;
 	font-size: 3.5rem;
+	opacity: 0;
+	transition: opacity 0.5s ease-in;
 }
 
-.computer-stats > p {
+#computer-stats > p {
 	margin: 0;
 }
 
-/* Round result fade in/out animation */
+/* Round results and fade in/out animations */
 
 #round-result {
 	grid-area: rounds;
 	position: relative;
 	color: #F3CB70;
 	font-size: 3.5rem;
+}
+
+.weapons.fade-in,
+#round-counter.fade-in, 
+#player-stats.fade-in,
+#computer-stats.fade-in
+ {
+	opacity: 1;
 }
 
 .fade-out {
@@ -168,15 +179,12 @@ h1 {
 
 .weapons > .glow-player {
 	box-shadow: 0px 0px 10px 10px #315561;
-	transition: 0.3 linear;
 }
 
 .weapons > .glow-computer {
 	box-shadow: 0px 0px 10px 10px #C4462B;
-	transition: 0.3 linear;
 }
 
 .weapons > .glow-both {
 	box-shadow: 0px 0px 10px 10px #913593;
-	transition: 0.3 linear;
 }
