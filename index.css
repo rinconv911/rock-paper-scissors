@@ -80,8 +80,13 @@ html, body {
 	transition: opacity 0.5s ease-in;
 }
 
+#play-match {
+	transition: opacity 0.5 ease-in;
+}
+
 #play-match, #try-again {
-	position: absolute;
+	grid-area: weapons;
+	position: relative;
 	margin: auto;
 	border-radius: 5rem;
 	height: 14rem;
@@ -91,8 +96,8 @@ html, body {
 	background-color:#25100B;
 	border-color: #F3CB70;
 	box-shadow: 3px 3px  #F3CB70;
-	transition: 0.2s linear;
 	white-space: pre;
+	transition: scale 0.3s linear;
 }
 
 #play-match:hover, #try-again:hover {
