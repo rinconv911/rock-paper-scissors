@@ -141,7 +141,7 @@ img {
 	margin: 0;
 }
 
-/* Round results and fade in/out animations */
+/* Round results and fade in-out animations */
 
 #round-result {
 	grid-area: rounds;
