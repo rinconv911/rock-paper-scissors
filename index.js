@@ -62,11 +62,14 @@ function computerPlay() {
 } 
 
 function playRound(e) {
+	const roundResult = document.querySelector('#round-result');
 	let playerSelection = e.target.id;
 	let computerSelection = computerPlay(); 
-	let winner;         
-
-	const roundResult = document.querySelector('#round-result');
+	let winner;       
+	
+	if (playerTally.textContent < 5 || computerTally.textContent < 5){
+		shakeWindow();
+	}
 
 	removeGlow();	
 	addGlow(e, computerSelection);
@@ -168,6 +171,13 @@ function fadeResult (result) {
 	result.classList.add('fade-out');	
 	let newResult = result.cloneNode(true);
 	result.replaceWith(newResult);	
+}
+
+function shakeWindow() {
+	mainContainer.classList.add('shake');
+	setTimeout(() => {
+		mainContainer.classList.remove('shake');	
+	}, 250);
 }
 
 /* function playGame(){

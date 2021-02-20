@@ -8,6 +8,7 @@ html, body {
 	margin: 0;
 	background-color: #451C19;
 	font-family: "lato", sans-serif;
+	overflow: hidden
 }
 
 .hide {
@@ -28,6 +29,24 @@ html, body {
 	justify-items: center;
 	align-items: center;
 }
+
+.shake {
+	animation: shake 0.3s linear; 
+}
+
+@keyframes shake {
+	0% { transform: rotate(0deg); }
+	10% { transform: rotate(1deg) scale(1.05); }
+	20% { transform: rotate(0deg); }
+	30% { transform: rotate(-1deg); }
+	40% { transform: rotate(0deg); }
+	50% { transform: rotate(1deg) ; }
+	60% { transform: rotate(0deg); }
+	70% { transform: rotate(-1deg); }
+	80% { transform: rotate(0deg); }
+	90% { transform: rotate(1deg); }
+	100% { transform: rotate(0deg) scale(1); }
+  }
 
 /* Title, legend, round counter, play button and try again button */
 .title {
@@ -72,7 +91,7 @@ img {
 }
 
 #play-match:hover, #try-again:hover {
-	scale: 1.1;
+	scale: 1.05;
 	box-shadow: 3px 3px  #F3CB70;
 }
 
@@ -98,11 +117,11 @@ img {
 	border-color: #F3CB70;
 	box-shadow: 3px 3px  #F3CB70;
 	transition: scale 0.3s linear,
-				box-shadow 0.3s linear;
+				box-shadow 0.3s ease-out;
 }
 
 #weapon-container .btn:hover {
-	scale: 1.1;
+	scale: 1.05;
 }
 
 /* Point counters  */
