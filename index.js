@@ -1,7 +1,7 @@
 const mainContainer = document.querySelector('#main-container')   
 let options = ['fire', 'water', 'earth'];     
-let playerWinCount = 4;
-let computerWinCount = 4;
+let playerWinCount = 0;
+let computerWinCount = 0;
 
 /* Players, counters, legend and button container appear after the Play Match button is clicked */
 const playerStats = document.querySelector('#player-stats');
