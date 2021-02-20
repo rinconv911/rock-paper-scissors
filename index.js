@@ -3,7 +3,7 @@ let options = ['fire', 'water', 'earth'];
 let playerWinCount = 0;
 let computerWinCount = 0;
 
-/* Players, counters and button container appear after the Play Match button is clicked */
+/* Players, counters, legend and button container appear after the Play Match button is clicked */
 const playerStats = document.querySelector('#player-stats');
 const playerPara = document.querySelector('#player');
 const playerTally = document.querySelector('#player-tally');
@@ -12,7 +12,9 @@ const computerStats = document.querySelector('#computer-stats');
 const compPara = document.querySelector('#computer');
 const computerTally = document.querySelector('#computer-tally')	
 
+const legend = document.querySelector('img');
 const buttonContainer = document.querySelector('#weapon-container');
+
 
 // Play Match button, which makes the UI appear when clicked
 const playMatch = document.querySelector('#play-match');
@@ -33,22 +35,25 @@ buttons.forEach(button => button.addEventListener('click', playRound));
 function showUI() {
 
 	playMatch.classList.add('hide');
+
 	buttonContainer.classList.add('fade-in');
 	buttons.forEach(button => {
 		button.classList.remove('hide')
 	});
 
+	legend.classList.add('fade-in');
+	counter.classList.add('fade-in');
+	counter.textContent = "Round # " + roundCount;
+
+
 	playerStats.classList.add('fade-in');
 	computerStats.classList.add('fade-in');
 	
 	playerPara.textContent = "You";
-	playerTally.textContent = playerWinCount;
-	
+	playerTally.textContent = playerWinCount;	
 	compPara.textContent = "Warlock";	
 	computerTally.textContent = computerWinCount;
 	
-	counter.classList.add('fade-in');
-	counter.textContent = "Round # " + roundCount;
 }
 
 function computerPlay() {

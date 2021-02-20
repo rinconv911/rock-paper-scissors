@@ -29,7 +29,7 @@ html, body {
 	align-items: center;
 }
 
-/* Title, round counter, play button and try again button */
+/* Title, legend, round counter, play button and try again button */
 .title {
 	grid-area: title;
 	display: grid;
@@ -43,6 +43,11 @@ h1 {
 	font-size: 6rem;
 	color: #F3CB70;
 	text-align: center;
+}
+
+img {
+	opacity: 0;
+	transition: opacity 0.5s ease-in;
 }
 
 #round-counter {	
@@ -148,7 +153,8 @@ h1 {
 #weapon-container.fade-in,
 #round-counter.fade-in, 
 #player-stats.fade-in,
-#computer-stats.fade-in
+#computer-stats.fade-in,
+img.fade-in
  {
 	opacity: 1;
 }
