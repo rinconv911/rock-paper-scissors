@@ -1,4 +1,3 @@
-<script>
 /*
 	let options = ['rock', 'paper', 'scissors'];     
 	let playerWinCount = 0;
@@ -141,4 +140,3 @@
 				return selection;
 			} 
 */
-</script>
