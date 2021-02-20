@@ -13,7 +13,6 @@ html, body {
 
 .hide {
 	display: none;
-	transition: 0.2s linear;
 }
 
 /* Main grid */
@@ -58,11 +57,13 @@ html, body {
 	row-gap: 1rem;
 }
 
-h1 { 
+#game-title { 
 	font-size: 6rem;
 	color: #F3CB70;
 	text-shadow: 2px 2px 2px black;
 	text-align: center;
+	opacity: 0;
+	transition: opacity 0.5s ease-in;
 }
 
 #legend {
@@ -91,6 +92,7 @@ h1 {
 	border-color: #F3CB70;
 	box-shadow: 3px 3px  #F3CB70;
 	transition: 0.2s linear;
+	white-space: pre;
 }
 
 #play-match:hover, #try-again:hover {
@@ -175,11 +177,9 @@ h1 {
 	font-size: 3.5rem;
 }
 
-#weapon-container.fade-in,
-#round-counter.fade-in, 
-#player-stats.fade-in,
-#computer-stats.fade-in,
-#legend.fade-in
+#weapon-container.fade-in, #round-counter.fade-in, 
+#player-stats.fade-in, #computer-stats.fade-in,
+#legend.fade-in, #game-title.fade-in
  {
 	opacity: 1;
 }

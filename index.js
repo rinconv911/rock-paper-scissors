@@ -1,7 +1,7 @@
 const mainContainer = document.querySelector('#main-container')   
 let options = ['fire', 'water', 'earth'];     
-let playerWinCount = 0;
-let computerWinCount = 0;
+let playerWinCount = 4;
+let computerWinCount = 4;
 
 /* Players, counters, legend and button container appear after the Play Match button is clicked */
 const playerStats = document.querySelector('#player-stats');
@@ -12,6 +12,7 @@ const computerStats = document.querySelector('#computer-stats');
 const compPara = document.querySelector('#computer');
 const computerTally = document.querySelector('#computer-tally')	
 
+const gameTitle = document.querySelector('#game-title')
 const legend = document.querySelector('img');
 const buttonContainer = document.querySelector('#weapon-container');
 
@@ -41,6 +42,7 @@ function showUI() {
 		button.classList.remove('hide')
 	});
 
+	gameTitle.classList.add('fade-in');
 	legend.classList.add('fade-in');
 	counter.classList.add('fade-in');
 	counter.textContent = "Round # " + roundCount;
@@ -95,12 +97,12 @@ function playRound(e) {
 		roundResult.textContent = "You win the match!";	
 		buttons.forEach(button => button.classList.add('hide'));
 		tryAgain.classList.remove('hide');
-		tryAgain.textContent = "The warlock asks for a rematch";
+		tryAgain.textContent = "The warlock\r\nasks for a rematch";
 	} else if (getWinner() == "computer") {
 		roundResult.textContent = "You lost the match!"
 		buttons.forEach(button => button.classList.add('hide'));
 		tryAgain.classList.remove('hide');
-		tryAgain.textContent = "Will you allow the dark magic to conquer the realm?";
+		tryAgain.textContent = "Get back out there!";
 	}
 
 	fadeResult(roundResult);
