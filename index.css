@@ -61,18 +61,21 @@ html, body {
 h1 { 
 	font-size: 6rem;
 	color: #F3CB70;
+	text-shadow: 2px 2px 2px black;
 	text-align: center;
 }
 
-img {
+#legend {
+	filter: drop-shadow(2px 2px 2px black);;
 	opacity: 0;
 	transition: opacity 0.5s ease-in;
 }
 
 #round-counter {	
-	opacity: 0;
-	color: #F3CB70;
 	font-size: 3.5rem;
+	color: #F3CB70;
+	text-shadow: 2px 2px 2px black;
+	opacity: 0;
 	transition: opacity 0.5s ease-in;
 }
 
@@ -133,7 +136,8 @@ img {
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;	
-	color: #315561;
+	color: #1d7997;
+	text-shadow: 2px 2px 2px black;
 	font-size: 3.5rem;
 	opacity: 0;
 	transition: opacity 0.5s ease-in;
@@ -150,7 +154,8 @@ img {
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	color: #C4462B;
+	color: #df3914;
+	text-shadow: 2px 2px 2px black;
 	font-size: 3.5rem;
 	opacity: 0;
 	transition: opacity 0.5s ease-in;
@@ -166,6 +171,7 @@ img {
 	grid-area: rounds;
 	position: relative;
 	color: #F3CB70;
+	text-shadow: 2px 2px 2px black;
 	font-size: 3.5rem;
 }
 
@@ -173,7 +179,7 @@ img {
 #round-counter.fade-in, 
 #player-stats.fade-in,
 #computer-stats.fade-in,
-img.fade-in
+#legend.fade-in
  {
 	opacity: 1;
 }
